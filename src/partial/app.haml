@@ -1,0 +1,31 @@
+!!!
+%html{ lang: "zh" }
+  %head
+    %meta{ content: "text/html; charset=utf-8", http:{ equiv: "Content-Type" } }
+    %meta{ content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}
+
+    %title js-digraph
+
+    :ruby
+      stylesheets = [
+        '//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.css',
+        '../dist/css/app.css'
+      ]
+
+    - stylesheets.each do |href|
+      %link{ rel: 'stylesheet', type: 'text/css', href: href, data: { turbolinks: { track: true } } }
+
+    :ruby
+      javascripts = [
+        '//cdn.bootcss.com/jquery/2.2.0/jquery.min.js',
+        '//cdn.bootcss.com/react/0.14.7/react.min.js',
+        '//cdn.bootcss.com/react/0.14.7/react-dom.min.js',
+        '//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.js',
+        '../dist/js/app.js'
+      ]
+
+    - javascripts.each do |src|
+      %script{ src: src, data: { turbolinks: { track: true } } }
+
+  %body.app
+    = yield
